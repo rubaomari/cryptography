@@ -1,0 +1,23 @@
+VALUATIONS OF SECRECY SYSTEM
+
+There are a number of different criteria that should be applied in estimating the value of a proposed secrecy system.
+The most important of these are:
+
+Amount of Secrecy
+There are some systems that are perfect: the enemy is no better off after intercepting any amount of material than before.
+Other systems, although giving him some information, do not yield a unique solution to intercepted cryptograms. Among 
+the uniquely solvable systems, there are wide variations in the amount of labor required to effect this solution and in
+the amount of material that must be intercepted to make the solution unique.
+
+Size of Key
+The key must be transmitted by non-interceptible means from transmitting to receiving points. Sometimes it must be
+memorized. It is therefore desirable to have the key as small as possible.
+
+Complexity of Enciphering and Deciphering Operations
+Enciphering and deciphering should, of course, be as simple as possible. If they are done manually, complexity leads to
+loss of time, errors, etc. If done mechanically, complexity leads to large expensive machines.
+
+Propagation of Errors
+In certain types of ciphers an error of one letter in enciphering or transmission leads to a large number of errors in
+the deciphered text. The error are spread out by the deciphering operation, causing the loss of much information and
+frequent need for repetition of the cryptogram. It is naturally desirable to minimize this error expansion.
