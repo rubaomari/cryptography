@@ -41,23 +41,23 @@ def find_preimage(bits, target):
         #         (i.e., if h(x, bits) equals target, return x and tries)
 
 
+print("bits | collision tries  ~2^(m/2)    time | preimage tries       ~2^m    time")
 for bits in [16, 20, 24]:
-    print("Hash size:", bits, "bits")
-
     start = time.time()
-    x1, x2, tries = find_collision(bits)
-    print("  Collision:", tries, "tries (expected about", 2 ** (bits // 2), ")",
-          round(time.time() - start, 2), "s")
+    x1, x2, ctries = find_collision(bits)
+    ctime = time.time() - start
 
     target = h(b"hello", bits)
     start = time.time()
-    x, tries = find_preimage(bits, target)
-    print("  Preimage: ", tries, "tries (expected about", 2 ** bits, ")",
-          round(time.time() - start, 2), "s")
+    x, ptries = find_preimage(bits, target)
+    ptime = time.time() - start
+
+    print(f"{bits:>4} | {ctries:>15,} {2 ** (bits // 2):>9,} {ctime:>6.2f}s |"
+          f" {ptries:>14,} {2 ** bits:>10,} {ptime:>6.2f}s")
 
 print()
-print("32-bit collision:")
+print("32-bit collision found:")
 x1, x2, tries = find_collision(32)
-print("  x1 =", x1.hex(), " h =", hex(h(x1, 32)))
-print("  x2 =", x2.hex(), " h =", hex(h(x2, 32)))
-print("  tries:", tries)
+print(f"  x1 = {x1.hex()}   h = {h(x1, 32):08x}")
+print(f"  x2 = {x2.hex()}   h = {h(x2, 32):08x}")
+print(f"  tries: {tries:,}")
